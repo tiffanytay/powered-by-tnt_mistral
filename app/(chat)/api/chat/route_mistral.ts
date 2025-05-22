@@ -36,6 +36,7 @@ import { after } from 'next/server';
 import type { Chat } from '@/lib/db/schema';
 import { differenceInSeconds } from 'date-fns';
 import { ChatSDKError } from '@/lib/errors';
+import { Mistral } from '@mistralai/mistralai'; // Import the Mistral client
 
 export const maxDuration = 60;
 
@@ -144,80 +145,69 @@ export async function POST(request: Request) {
     const streamId = generateUUID();
     await createStreamId({ streamId, chatId: id });
 
+    // Initialize Mistral client
+    const apiKey = process.env.MISTRAL_API_KEY;
+    const agentId = process.env.MISTRAL_AGENT_ID;
+
+    if (!apiKey || !agentId) {
+      console.error(
+        'Missing MISTRAL_API_KEY or MISTRAL_AGENT_ID environment variables',
+      );
+      return new Response('Internal Server Error', { status: 500 });
+    }
+
+    const mistralClient = new Mistral({ apiKey });
+
     const stream = createDataStream({
-      execute: (dataStream) => {
-        const result = streamText({
-          model: myProvider.languageModel(selectedChatModel),
-          system: systemPrompt({ selectedChatModel, requestHints }),
-          messages,
-          maxSteps: 5,
-          experimental_activeTools:
-            selectedChatModel === 'chat-model-reasoning'
-              ? []
-              : [
-                  'getWeather',
-                  'createDocument',
-                  'updateDocument',
-                  'requestSuggestions',
-                ],
-          experimental_transform: smoothStream({ chunking: 'word' }),
-          experimental_generateMessageId: generateUUID,
-          tools: {
-            getWeather,
-            createDocument: createDocument({ session, dataStream }),
-            updateDocument: updateDocument({ session, dataStream }),
-            requestSuggestions: requestSuggestions({
-              session,
-              dataStream,
+      execute: async (dataStream) => {
+        try {
+          // Call Mistral agent
+          const response = await mistralClient.agents.complete({
+            agentId: agentId,
+            messages: messages.map((msg) => ({
+              role: msg.role,
+              content: msg.parts.map((part) => part.text).join(''),
+            })),
+          });
+
+          if (!response.choices || response.choices.length === 0) {
+            throw new Error('No response from Mistral agent');
+          }
+
+          const agentMessage = response.choices[0].message.content;
+
+          // Send agent message to the client
+          dataStream.writeData({
+            type: 'append-message',
+            message: JSON.stringify({
+              id: generateUUID(),
+              role: 'assistant',
+              parts: [{ text: agentMessage }],
             }),
-          },
-          onFinish: async ({ response }) => {
-            if (session.user?.id) {
-              try {
-                const assistantId = getTrailingMessageId({
-                  messages: response.messages.filter(
-                    (message) => message.role === 'assistant',
-                  ),
-                });
+          });
 
-                if (!assistantId) {
-                  throw new Error('No assistant message found!');
-                }
+          // Save the agent's message
+          const assistantId = generateUUID(); // Generate a unique ID for the agent's message
 
-                const [, assistantMessage] = appendResponseMessages({
-                  messages: [message],
-                  responseMessages: response.messages,
-                });
+          await saveMessages({
+            messages: [
+              {
+                id: assistantId,
+                chatId: id,
+                role: 'assistant',
+                parts: [{ text: agentMessage }],
+                attachments: [], // Agents don't have attachments
+                createdAt: new Date(),
+              },
+            ],
+          });
 
-                await saveMessages({
-                  messages: [
-                    {
-                      id: assistantId,
-                      chatId: id,
-                      role: assistantMessage.role,
-                      parts: assistantMessage.parts,
-                      attachments:
-                        assistantMessage.experimental_attachments ?? [],
-                      createdAt: new Date(),
-                    },
-                  ],
-                });
-              } catch (_) {
-                console.error('Failed to save chat');
-              }
-            }
-          },
-          experimental_telemetry: {
-            isEnabled: isProductionEnvironment,
-            functionId: 'stream-text',
-          },
-        });
-
-        result.consumeStream();
-
-        result.mergeIntoDataStream(dataStream, {
-          sendReasoning: true,
-        });
+          dataStream.close();
+        } catch (error: any) {
+          console.error('Error calling Mistral agent:', error);
+          dataStream.close(); // Close the data stream
+          throw error; // Re-throw the error to be caught in the outer catch block
+        }
       },
       onError: () => {
         return 'Oops, an error occurred!';
@@ -234,13 +224,13 @@ export async function POST(request: Request) {
       return new Response(stream);
     }
   } catch (error) {
+    console.error('Outer catch block:', error);
     if (error instanceof ChatSDKError) {
       return error.toResponse();
     }
+    // Fallback: if somehow nothing was returned above
+    return new Response('Internal Server Error', { status: 500 });
   }
-
-  // Fallback: if somehow nothing was returned above
-  return new Response('Internal Server Error', { status: 500 });
 }
 
 export async function GET(request: Request) {
@@ -331,7 +321,6 @@ export async function GET(request: Request) {
         });
       },
     });
-
     return new Response(restoredStream, { status: 200 });
   }
 
