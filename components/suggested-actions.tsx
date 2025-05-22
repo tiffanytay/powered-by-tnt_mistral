@@ -19,24 +19,26 @@ function PureSuggestedActions({
 }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'What are the advantages',
-      label: 'of using Next.js?',
-      action: 'What are the advantages of using Next.js?',
+      title: 'Tell me about',
+      label: 'Tiffany Tay',
+      action:
+        "Summarize Tiffany Tay's most relevant experience and key achievements for this role.",
     },
     {
-      title: 'Write code to',
-      label: `demonstrate djikstra's algorithm`,
-      action: `Write code to demonstrate djikstra's algorithm`,
+      title: 'How does Tiffany',
+      label: `approach leadership, collaboration and stakeholder management?`,
+      action: `How does Tiffany Tay approach leadership, collaboration and stakeholder management?`,
     },
     {
-      title: 'Help me write an essay',
-      label: `about silicon valley`,
-      action: `Help me write an essay about silicon valley`,
+      title: 'Provide an example',
+      label: `of how Tiffany solved a complex problem`,
+      action: `Provide an example of how Tiffany Tay solved a complex problem in her previous roles.`,
     },
     {
-      title: 'What is the weather',
-      label: 'in San Francisco?',
-      action: 'What is the weather in San Francisco?',
+      title: 'What does Tiffany do',
+      label: 'outside of work?',
+      action:
+        'What does Tiffany Tay do outside of work? What are her hobbies and interests?',
     },
   ];
 

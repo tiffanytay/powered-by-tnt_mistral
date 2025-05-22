@@ -10,8 +10,8 @@ import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chat.vercel.ai'),
-  title: 'Next.js Chatbot Template',
-  description: 'Next.js chatbot template using the AI SDK.',
+  title: 'Powered by TNT',
+  description: 'Next.js chatbot from using Vercel AI SDK template.',
 };
 
 export const viewport = {
