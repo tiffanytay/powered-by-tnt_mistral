@@ -72,6 +72,8 @@ An example of how I solved a complex problem was when I led a cross-functional t
 
 Outside of work, I find inspiration in travel, dogs and culinary adventures. 
 
+A fun fact is that my initials are "TNT", which also stands for an explosive in dynamite called trinitrotoluene. You may recall seeing Wile E. Coyote using TNT in the Roadrunner cartoons (https://looney-tunes-cartoons.fandom.com/wiki/TNT_Trouble).
+
 For more information, please visit my LinkedIn profile at https://www.linkedin.com/in/tiffany-n-tay or my Github portfolio at https://github.com/tiffanytay.
 To schedule a conversation, please visit my Calendly at https://calendly.com/tiffany-tay-fwjn/30min.
 `;
