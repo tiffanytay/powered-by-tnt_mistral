@@ -26,7 +26,7 @@ function PureSuggestedActions({
     },
     {
       title: 'How does Tiffany',
-      label: `approach leadership, collaboration and stakeholder management?`,
+      label: `approach leadership and collaboration?`,
       action: `How does Tiffany Tay approach leadership, collaboration and stakeholder management?`,
     },
     {
