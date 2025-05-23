@@ -20,30 +20,17 @@ export default async function Page() {
   const modelIdFromCookie = cookieStore.get('chat-model');
 
   const footer = (
-    <footer
-      className="w-full text-xs text-gray-500 mt-8 mb-2 bg-transparent text-right italic pr-8"
-      // style={{
-      //   position: 'fixed',
-      //   right: 0,
-      //   bottom: 0,
-      //   background: '#f9f9f9',
-      //   color: '#555',
-      //   padding: '0.5rem 1rem',
-      //   fontSize: '0.85rem',
-      //   zIndex: 100,
-      //   borderTopLeftRadius: '8px',
-      // }}
-    >
-      Also powered by the{' '}
+    <footer className="w-full text-xs text-gray-500 mt-8 mb-2 bg-transparent text-right italic pr-8">
+      {' '}
       <a
         href="https://mistral.ai"
         target="_blank"
         rel="noopener noreferrer"
         className="underline hover:text-white"
       >
-        latest Mistral Small model
+        Mistral (latest Small model)
       </a>{' '}
-      &amp;{' '}
+      &amp;chatbot built with{' '}
       <a
         href="https://vercel.com/ai"
         target="_blank"

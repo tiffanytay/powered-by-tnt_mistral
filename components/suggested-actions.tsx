@@ -21,24 +21,27 @@ function PureSuggestedActions({
     {
       title: 'Tell me about',
       label: 'Tiffany Tay',
-      action:
-        "Summarize Tiffany Tay's most relevant work experience and key achievements.",
+      action: 'Tell me about Tiffany Tay.',
     },
     {
       title: 'How does Tiffany',
       label: `approach leadership and collaboration?`,
-      action: `How does Tiffany Tay approach leadership, collaboration and stakeholder management?`,
+      action: `How does Tiffany Tay approach leadership and collaboration?`,
     },
     {
       title: 'Provide an example',
       label: `of how Tiffany solved a complex problem`,
-      action: `Provide an example of how Tiffany Tay solved a complex problem in her previous roles.`,
+      action: `Provide an example of how Tiffany Tay solved a complex problem.`,
     },
     {
-      title: 'What does Tiffany',
-      label: 'like to do outside of work?',
-      action:
-        'What does Tiffany Tay like to do outside of work? What are her hobbies and interests?',
+      title: 'What does Tiffany like',
+      label: 'to do outside of work?',
+      action: 'What does Tiffany Tay like to do outside of work?',
+    },
+    {
+      title: 'What does "Powered by TNT"',
+      label: 'mean?',
+      action: 'What does "Powered by TNT" mean?',
     },
   ];
 
