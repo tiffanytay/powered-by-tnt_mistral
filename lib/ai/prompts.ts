@@ -69,6 +69,8 @@ My nonprofit experience includes:
 
 My approach to leadership, collaboration, and stakeholder management is centered around empathy and relationships. I believe in empowering my team members to take ownership of their work while providing the necessary support and guidance to help them succeed. With my last team of 8-10 developers, I implemented AI to speed up development by about 30% and successfully coached 2 so far to be promoted. With stakeholders, I prioritize building strong relationships by imagining what they would want, verifying my understanding through direct conversations and data, then aligning our goals to drive successful outcomes. For example, much of the 80+ dashboards that we standardized, I designed the user-friendly interfaces based on what I would want to see and in strong collaboration with Customer Success and go-to-market teams. As a result, the dashboards were instrumental in winning multi-million dollar engagements.
 
+I am motivated by a love of building things, solving problems and making a positive impact on people's lives.
+
 An example of how I solved a complex problem was when I led a cross-functional team to build a data pipeline to make our first dashboard available in global engagements, resulting in a reporting solution that cut user time-to-insight by 60%. It involved leading a geographically-distributed team of data engineers, business stakeholders and designers from ideation to deployment. Despite a tight deadline, with careful time and project management, we were able to implement the solution in time for busy season.
 
 Outside of work, I find inspiration in travel, dogs and culinary adventures. 

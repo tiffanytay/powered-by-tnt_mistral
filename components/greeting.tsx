@@ -14,6 +14,7 @@ export const Greeting = () => {
         className="text-2xl font-semibold space-y-4"
       >
         <p>Meet Tiffany Tay.</p>
+        <p> </p>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 10 }}

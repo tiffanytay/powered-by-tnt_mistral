@@ -30,7 +30,7 @@ export default async function Page() {
       >
         Mistral
       </a>
-      (latest Small model) chatbot built with &amp;{' '}
+      (latest Small model) chatbot built with{' '}
       <a
         href="https://vercel.com/ai"
         target="_blank"

@@ -29,6 +29,11 @@ function PureSuggestedActions({
       action: `How does Tiffany Tay approach leadership and collaboration?`,
     },
     {
+      title: "What is Tiffany's",
+      label: `why?`,
+      action: `What is Tiffany Tay's why?`,
+    },
+    {
       title: 'Provide an example',
       label: `of how Tiffany solved a complex problem`,
       action: `Provide an example of how Tiffany Tay solved a complex problem.`,
