@@ -34,14 +34,14 @@ export default async function Page() {
       //   borderTopLeftRadius: '8px',
       // }}
     >
-      Also powered by{' '}
+      Also powered by the{' '}
       <a
         href="https://mistral.ai"
         target="_blank"
         rel="noopener noreferrer"
         className="underline hover:text-white"
       >
-        Mistral Small model
+        latest Mistral Small model
       </a>{' '}
       &amp;{' '}
       <a
