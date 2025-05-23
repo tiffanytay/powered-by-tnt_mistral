@@ -55,13 +55,16 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const chatModelFromCookie = cookieStore.get('chat-model');
 
   const footer = (
-    <footer className="w-full text-center text-xs text-gray-500 mt-8 mb-2">
+    <footer
+      className="w-full text-center text-xs text-gray-500 mt-8 mb-2"
+      style={{ textAlign: 'right', paddingRight: '2rem' }}
+    >
       Also powered by{' '}
       <a
         href="https://mistral.ai"
         target="_blank"
         rel="noopener noreferrer"
-        className="underline hover:text-blue-600"
+        className="underline hover:text-white-600"
       >
         Mistral Small model
       </a>{' '}
@@ -70,7 +73,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
         href="https://vercel.com/ai"
         target="_blank"
         rel="noopener noreferrer"
-        className="underline hover:text-blue-600"
+        className="underline hover:text-white-600"
       >
         Vercel AI SDK
       </a>
