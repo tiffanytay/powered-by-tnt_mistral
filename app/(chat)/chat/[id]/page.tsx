@@ -57,7 +57,17 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const footer = (
     <footer
       className="w-full text-center text-xs text-gray-500 mt-8 mb-2"
-      style={{ textAlign: 'right', paddingRight: '2rem' }}
+      style={{
+        position: 'fixed',
+        right: 0,
+        bottom: 0,
+        background: '#f9f9f9',
+        color: '#555',
+        padding: '0.5rem 1rem',
+        fontSize: '0.85rem',
+        zIndex: 100,
+        borderTopLeftRadius: '8px',
+      }}
     >
       Also powered by{' '}
       <a
