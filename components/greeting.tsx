@@ -13,7 +13,7 @@ export const Greeting = () => {
         transition={{ delay: 0.5 }}
         className="text-2xl font-semibold space-y-4"
       >
-        Hi! Meet Tiffany Tay.
+        Meet Tiffany Tay.
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -22,8 +22,16 @@ export const Greeting = () => {
         transition={{ delay: 0.6 }}
         className="text-2xl text-zinc-500 space-y-4"
       >
-        Tiffany built me so you can get to know her. So, ask me anything! Heads
-        up though: I’m still learning and am mostly correct but may
+        Hi! Tiffany built me so you can get to know her. So, ask me anything!
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 10 }}
+        transition={{ delay: 0.6 }}
+        className="text-2xl text-zinc-500 space-y-4"
+      >
+        Heads up though: I’m still learning and am mostly correct but may
         occassionally come up with answers all by myself.
       </motion.div>
     </div>

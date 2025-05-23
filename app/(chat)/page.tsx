@@ -28,9 +28,9 @@ export default async function Page() {
         rel="noopener noreferrer"
         className="underline hover:text-white"
       >
-        Mistral (latest Small model)
-      </a>{' '}
-      &amp;chatbot built with{' '}
+        Mistral
+      </a>
+      (latest Small model) chatbot built with &amp;{' '}
       <a
         href="https://vercel.com/ai"
         target="_blank"
