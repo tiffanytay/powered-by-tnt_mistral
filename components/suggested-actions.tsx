@@ -22,7 +22,7 @@ function PureSuggestedActions({
       title: 'Tell me about',
       label: 'Tiffany Tay',
       action:
-        "Summarize Tiffany Tay's most relevant experience and key achievements for this role.",
+        "Summarize Tiffany Tay's most relevant work experience and key achievements.",
     },
     {
       title: 'How does Tiffany',
@@ -35,10 +35,10 @@ function PureSuggestedActions({
       action: `Provide an example of how Tiffany Tay solved a complex problem in her previous roles.`,
     },
     {
-      title: 'What does Tiffany do',
-      label: 'outside of work?',
+      title: 'What does Tiffany',
+      label: 'like to do outside of work?',
       action:
-        'What does Tiffany Tay do outside of work? What are her hobbies and interests?',
+        'What does Tiffany Tay like to do outside of work? What are her hobbies and interests?',
     },
   ];
 
