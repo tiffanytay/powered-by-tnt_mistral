@@ -28,7 +28,7 @@ export const Greeting = () => {
         </p>
         <p>
           Heads up though: I’m still learning and am mostly correct but may
-          occassionally come up with answers all by myself.
+          occasionally come up with answers all by myself.
         </p>
       </motion.div>
     </div>
