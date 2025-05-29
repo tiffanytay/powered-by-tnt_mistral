@@ -21,7 +21,7 @@ export default async function Page() {
 
   const footer = (
     <footer className="w-full text-xs text-gray-500 mt-8 mb-2 bg-transparent text-right italic pr-8">
-      {' '}
+      Chatbot built with latest{' '}
       <a
         href="https://mistral.ai"
         target="_blank"
@@ -30,7 +30,7 @@ export default async function Page() {
       >
         Mistral
       </a>
-      (latest Small model) chatbot built with{' '}
+      Small model &amp;{' '}
       <a
         href="https://vercel.com/ai"
         target="_blank"
