@@ -29,7 +29,7 @@ export default async function Page() {
         className="underline hover:text-white"
       >
         Mistral
-      </a>
+      </a>{' '}
       Small model &amp;{' '}
       <a
         href="https://vercel.com/ai"
