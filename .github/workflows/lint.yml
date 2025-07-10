@@ -10,8 +10,8 @@ jobs:
         node-version: [20]
     steps:
       - uses: pnpm/action-setup@v4
-        with:
-          # version: 10.13.1  # Optional: specify version or let packageManager field handle it
+          # with: 
+            # version: 10.13.1  # Optional: specify version or let packageManager field handle it
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
