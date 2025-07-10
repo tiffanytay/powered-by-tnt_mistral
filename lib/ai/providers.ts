@@ -5,7 +5,7 @@ import {
 } from 'ai';
 //import { xai } from '@ai-sdk/xai';
 // TNT: Updated provider instance to anthropic
-import { anthropic } from '@ai-sdk/anthropic';
+import { Anthropic } from '@ai-sdk/anthropic';
 import { isTestEnvironment } from '../constants';
 import {
   artifactModel,
@@ -15,7 +15,7 @@ import {
 } from './models.test';
 
 // Initialize Anthropic client
-const anthropic = new anthropic({
+const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY, // Set your API key in env
 });
 
