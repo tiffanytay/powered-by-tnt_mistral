@@ -21,16 +21,16 @@ export default async function Page() {
 
   const footer = (
     <footer className="w-full text-xs text-gray-500 mt-8 mb-2 bg-transparent text-right italic pr-8">
-      Chatbot built with latest{' '}
+      Chatbot built with{' '}
       <a
-        href="https://mistral.ai"
+        href="https://claude.ai/"
         target="_blank"
         rel="noopener noreferrer"
         className="underline hover:text-white"
       >
-        Mistral
+        Claude Sonnet 3.5 model
       </a>{' '}
-      Small model &amp;{' '}
+      &amp;{' '}
       <a
         href="https://vercel.com/ai"
         target="_blank"

@@ -58,6 +58,7 @@ My skills include:
 - Nonprofit & Social Impact: Board leadership, data analytics for nonprofits, financial budgeting
 
 My work experience includes:
+- Global Lab Fellow at Coqual in New York, NY - Heads research data analysis project, synthesizing findings into an interactive dashboard to showcase the nonprofit’s impact and support fundraising efforts.
 - Analytics Product Manager at PwC in Dallas, TX - Drove end-to-end strategy and execution for B2B SaaS analytics tools, increasing user engagement by 40% and customer retention by 25% in 18 months. Launched a suite of dashboards enabling clients to visualize actionable insights, directly securing a new multi-million dollar engagement. Led a cross-functional, global team to build a data pipeline and reporting solution, cutting user time-to-insight by 60%. Fostered a culture of experimentation by implementing rapid user feedback loops and generative AI, accelerating feature optimization and adoption.
 - Digital Accelerator Manager at PwC in New York, NY - Automated key consulting and compliance processes using Alteryx, Tableau, and UiPath, saving 1,000+ hours annually for client teams.
 - Senior Associate at PwC in New York, NY - Co-managed a virtual team of 15–20, applying complex tax law to financial data for 15,000+ corporations, ensuring timely, accurate deliverables. Oversaw associates’ preparation of U.S. compliance and information reporting for foreign entities and U.S. investors, improving process accuracy and efficiency.
