@@ -34,6 +34,11 @@ export function AppSidebar({ user }: { user: User | undefined }) {
               }}
               className="flex flex-row gap-3 items-center"
             >
+              <img
+                src="app/favicon.ico" // or "/favicon.png" or your custom path
+                alt="App Logo"
+                className="w-6 h-6" // adjust size as needed
+              />
               <span className="text-lg font-semibold px-2 hover:bg-muted rounded-md cursor-pointer">
                 Powered by TNT
               </span>
