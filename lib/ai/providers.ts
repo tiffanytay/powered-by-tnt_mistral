@@ -3,9 +3,8 @@ import {
   extractReasoningMiddleware,
   wrapLanguageModel,
 } from 'ai';
-//import { xai } from '@ai-sdk/xai';
 // TNT: Updated provider instance to anthropic
-import { Anthropic } from '@ai-sdk/anthropic';
+import { anthropic } from '@ai-sdk/anthropic';
 import { isTestEnvironment } from '../constants';
 import {
   artifactModel,
@@ -13,24 +12,6 @@ import {
   reasoningModel,
   titleModel,
 } from './models.test';
-
-// Initialize Anthropic client
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY, // Set your API key in env
-});
-
-// Helper to call Claude
-const claudeModel =
-  (modelName = 'claude-3-5-sonnet') =>
-  async ({ messages, maxTokens = 1024 }) => {
-    const response = await anthropic.messages.create({
-      model: modelName,
-      messages,
-      max_tokens: maxTokens,
-    });
-    // Return the main content; adjust as needed for your framework
-    return response.content;
-  };
 
 export const myProvider = isTestEnvironment
   ? customProvider({
@@ -43,13 +24,12 @@ export const myProvider = isTestEnvironment
     })
   : customProvider({
       languageModels: {
-        'chat-model': claudeModel(),
+        'chat-model': anthropic('claude-3-5-sonnet'),
         'chat-model-reasoning': wrapLanguageModel({
-          model: claudeModel(),
+          model: anthropic('claude-3-5-sonnet'),
           middleware: extractReasoningMiddleware({ tagName: 'think' }),
         }),
-        'title-model': claudeModel(),
-        'artifact-model': claudeModel(),
+        'title-model': anthropic('claude-3-5-sonnet'),
+        'artifact-model': anthropic('claude-3-5-sonnet'),
       },
-      // imageModels: { ... } // Anthropic does not yet support image models via API
     });
