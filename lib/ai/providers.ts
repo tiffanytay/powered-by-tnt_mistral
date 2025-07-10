@@ -15,7 +15,7 @@ import {
 } from './models.test';
 
 // Initialize Anthropic client
-const anthropic = new Anthropic({
+const anthropic = new anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY, // Set your API key in env
 });
 
