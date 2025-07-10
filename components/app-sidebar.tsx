@@ -35,7 +35,7 @@ export function AppSidebar({ user }: { user: User | undefined }) {
               className="flex flex-row gap-3 items-center"
             >
               <img
-                src="app\\favicon-96x96.png" // or "/favicon.png" or your custom path
+                src="app/favicon-96x96.png" // or "/favicon.png" or your custom path
                 alt="App Logo"
                 className="w-6 h-6" // adjust size as needed
               />
