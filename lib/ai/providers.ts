@@ -4,8 +4,8 @@ import {
   wrapLanguageModel,
 } from 'ai';
 //import { xai } from '@ai-sdk/xai';
-// TNT: Updated provider instance to mistral
-import { mistral } from '@ai-sdk/mistral';
+// TNT: Updated provider instance to anthropic
+import { anthropic } from '@ai-sdk/anthropic';
 import { isTestEnvironment } from '../constants';
 import {
   artifactModel,
@@ -37,3 +37,18 @@ export const myProvider = isTestEnvironment
       //   'small-model': mistral('pixtral-large-latest'),
       // },
     });
+
+import { createAnthropic } from '@ai-sdk/anthropic';
+
+const anthropic = createAnthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+  // other custom settings
+});
+
+import { generateText } from 'ai';
+
+const { text } = await generateText({
+  model: anthropic('claude-3-5-sonnet-20240620'),
+  max_tokens: 1000,
+  temperature: 1,
+});
