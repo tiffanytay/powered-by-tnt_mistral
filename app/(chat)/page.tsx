@@ -46,14 +46,22 @@ export default async function Page() {
     return (
       <>
         <div className="flex flex-col h-screen">
-          <div className="flex-1 overflow-y-auto bg-blue-100">
-            <div style={{ height: 2000 }}>
-              Chat area (make this tall to test scroll)
-            </div>
+          {/* Chat area and DataStreamHandler share scrollable space */}
+          <div className="flex-1 overflow-y-auto flex flex-col">
+            <Chat
+              key={id}
+              id={id}
+              initialMessages={[]}
+              initialChatModel={DEFAULT_CHAT_MODEL}
+              initialVisibilityType="private"
+              isReadonly={false}
+              session={session}
+              autoResume={false}
+            />
+            <DataStreamHandler id={id} />
           </div>
-          <footer className="w-full text-xs text-gray-500 mb-2 text-right italic pr-8 bg-red-100">
-            Footer content
-          </footer>
+          {/* Footer always at the bottom, outside scrollable area */}
+          <div className="flex justify-end p-2">{footer}</div>
         </div>
       </>
     );
