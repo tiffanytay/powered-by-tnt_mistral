@@ -38,12 +38,6 @@
 
 The chat model was switched from [xAI](https://x.ai) `grok-2-1212` to [Claude 3.5 Sonnet](https://claude.ai).
 
-## Deploy Your Own
-
-You can deploy your own version of the Next.js AI Chatbot to Vercel with one click:
-
-[![See LinkedIn Page](app/linkedin.svg)](https://www.linkedin.com/in/tiffany-n-tay)
-
 ## Running locally
 
 You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) for this, but a `.env` file is all that is necessary.

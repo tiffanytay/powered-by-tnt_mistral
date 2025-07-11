@@ -19,7 +19,7 @@ export default async function Page() {
   const cookieStore = await cookies();
   const modelIdFromCookie = cookieStore.get('chat-model');
 
-  const footer = (
+  /* const footer = (
     <footer className="w-full text-xs text-gray-500 mt-8 mb-2 bg-transparent text-right italic pr-8">
       Chatbot built with{' '}
       <a
@@ -40,7 +40,7 @@ export default async function Page() {
         Vercel AI SDK
       </a>
     </footer>
-  );
+  ); */
 
   if (!modelIdFromCookie) {
     return (
