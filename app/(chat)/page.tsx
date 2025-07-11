@@ -74,7 +74,7 @@ export default async function Page() {
         autoResume={false}
       />
       <DataStreamHandler id={id} />
-      {footer}
+      {/* {footer} */}
     </>
   );
 }
