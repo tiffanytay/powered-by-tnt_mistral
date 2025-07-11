@@ -46,7 +46,32 @@ export default async function Page() {
     return (
       <>
         <div className="flex flex-col h-screen">
-          {/* Chat area (scrollable) */}
+          {/* Chat area and DataStreamHandler share scrollable space */}
+          <div className="flex-1 overflow-y-auto flex flex-col">
+            <Chat
+              key={id}
+              id={id}
+              initialMessages={[]}
+              initialChatModel={DEFAULT_CHAT_MODEL}
+              initialVisibilityType="private"
+              isReadonly={false}
+              session={session}
+              autoResume={false}
+            />
+            <DataStreamHandler id={id} />
+          </div>
+          {/* Footer always at the bottom, outside scrollable area */}
+          <div className="flex justify-end p-2">{footer}</div>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="flex flex-col h-screen">
+        {/* Chat area and DataStreamHandler share scrollable space */}
+        <div className="flex-1 overflow-y-auto flex flex-col">
           <Chat
             key={id}
             id={id}
@@ -57,36 +82,9 @@ export default async function Page() {
             session={session}
             autoResume={false}
           />
-          <div className="flex-1 overflow-y-auto">
-            {/* Chat content */}
-            <DataStreamHandler id={id} />
-          </div>
-          {/* Footer area (fixed to the right) */}
-          <div className="flex justify-end p-2">{footer}</div>
-        </div>
-      </>
-    );
-  }
-
-  return (
-    <>
-      <div className="flex flex-col h-screen">
-        {/* Chat area (scrollable) */}
-        <Chat
-          key={id}
-          id={id}
-          initialMessages={[]}
-          initialChatModel={DEFAULT_CHAT_MODEL}
-          initialVisibilityType="private"
-          isReadonly={false}
-          session={session}
-          autoResume={false}
-        />
-        <div className="flex-1 overflow-y-auto">
-          {/* Chat content */}
           <DataStreamHandler id={id} />
         </div>
-        {/* Footer area (fixed to the right) */}
+        {/* Footer always at the bottom, outside scrollable area */}
         <div className="flex justify-end p-2">{footer}</div>
       </div>
     </>
