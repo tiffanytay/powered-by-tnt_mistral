@@ -7,7 +7,7 @@ import { useWindowSize } from 'usehooks-ts';
 import { ModelSelector } from '@/components/model-selector';
 import { SidebarToggle } from '@/components/sidebar-toggle';
 import { Button } from '@/components/ui/button';
-import { PlusIcon, VercelIcon } from './icons';
+import { PlusIcon, LinkedInIcon } from './icons';
 import { useSidebar } from './ui/sidebar';
 import { memo } from 'react';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
@@ -79,7 +79,7 @@ function PureChatHeader({
           href={`https://www.linkedin.com/in/tiffany-n-tay`}
           target="_noblank"
         >
-          <VercelIcon size={16} />
+          <LinkedInIcon size={16} />
           See LinkedIn Profile
         </Link>
       </Button>

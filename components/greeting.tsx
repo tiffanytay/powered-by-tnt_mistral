@@ -21,7 +21,7 @@ export const Greeting = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ delay: 0.6 }}
-        className="text-2xl text-zinc-500 space-y-4"
+        className="text-xl text-zinc-500 space-y-4"
       >
         <p>
           Hi! Tiffany built me so you can get to know her. So, ask me anything!
