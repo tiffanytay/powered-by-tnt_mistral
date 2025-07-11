@@ -19,7 +19,7 @@ export default async function Page() {
   const cookieStore = await cookies();
   const modelIdFromCookie = cookieStore.get('chat-model');
 
-  /* const footer = (
+  const footer = (
     <footer className="w-full text-xs text-gray-500 mt-8 mb-2 bg-transparent text-right italic pr-8">
       Chatbot built with{' '}
       <a
@@ -40,11 +40,38 @@ export default async function Page() {
         Vercel AI SDK
       </a>
     </footer>
-  ); */
+  );
 
   if (!modelIdFromCookie) {
     return (
       <>
+        <div className="flex flex-col h-screen">
+          {/* Chat area (scrollable) */}
+          <Chat
+            key={id}
+            id={id}
+            initialMessages={[]}
+            initialChatModel={DEFAULT_CHAT_MODEL}
+            initialVisibilityType="private"
+            isReadonly={false}
+            session={session}
+            autoResume={false}
+          />
+          <div className="flex-1 overflow-y-auto">
+            {/* Chat content */}
+            <DataStreamHandler id={id} />
+          </div>
+          {/* Footer area (fixed to the right) */}
+          <div className="flex justify-end p-2">{footer}</div>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="flex flex-col h-screen">
+        {/* Chat area (scrollable) */}
         <Chat
           key={id}
           id={id}
@@ -55,26 +82,13 @@ export default async function Page() {
           session={session}
           autoResume={false}
         />
-        <DataStreamHandler id={id} />
-        {/* {footer} */}
-      </>
-    );
-  }
-
-  return (
-    <>
-      <Chat
-        key={id}
-        id={id}
-        initialMessages={[]}
-        initialChatModel={modelIdFromCookie.value}
-        initialVisibilityType="private"
-        isReadonly={false}
-        session={session}
-        autoResume={false}
-      />
-      <DataStreamHandler id={id} />
-      {/* {footer} */}
+        <div className="flex-1 overflow-y-auto">
+          {/* Chat content */}
+          <DataStreamHandler id={id} />
+        </div>
+        {/* Footer area (fixed to the right) */}
+        <div className="flex justify-end p-2">{footer}</div>
+      </div>
     </>
   );
 }
