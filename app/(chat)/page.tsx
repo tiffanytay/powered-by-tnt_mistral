@@ -28,7 +28,7 @@ export default async function Page() {
         rel="noopener noreferrer"
         className="underline hover:text-white"
       >
-        Claude Sonnet 3.5 model
+        Claude Sonnet 4 model
       </a>{' '}
       &amp;{' '}
       <a
