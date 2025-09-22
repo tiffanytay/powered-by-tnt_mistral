@@ -19,7 +19,7 @@ const anthropic = createAnthropic({
 });
 
 const { text } = await generateText({
-  model: anthropic('claude-3-5-sonnet-20240620'),
+  model: anthropic('claude-sonnet-4-20250514'),
   prompt:
     'Provide concise, positive responses to hiring questions about Tiffany Tay.',
 });
@@ -35,12 +35,12 @@ export const myProvider = isTestEnvironment
     })
   : customProvider({
       languageModels: {
-        'chat-model': anthropic('claude-3-5-sonnet-20240620'),
+        'chat-model': anthropic('claude-sonnet-4-20250514'),
         'chat-model-reasoning': wrapLanguageModel({
-          model: anthropic('claude-3-5-sonnet-20240620'),
+          model: anthropic('claude-sonnet-4-20250514'),
           middleware: extractReasoningMiddleware({ tagName: 'think' }),
         }),
-        'title-model': anthropic('claude-3-5-sonnet-20240620'),
-        'artifact-model': anthropic('claude-3-5-sonnet-20240620'),
+        'title-model': anthropic('claude-sonnet-4-20250514'),
+        'artifact-model': anthropic('claude-sonnet-4-20250514'),
       },
     });
